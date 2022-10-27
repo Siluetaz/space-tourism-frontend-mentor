@@ -2,8 +2,8 @@
 import { ref, onMounted, watch } from "@vue/runtime-core"
 import data from './../../data.json'
 
-let datos = data
-let planetSelected = ref(datos.destinations[0])
+let jsonData = data
+let planetSelected = ref(jsonData.destinations[0])
 
 onMounted(() => {
     document.body.style.backgroundImage = 'url(./../../assets/destination/background-destination-desktop.jpg)'
@@ -20,10 +20,10 @@ onMounted(() => {
         </div>
         <div class="info-side">
             <div class="navigation-planet">
-                <div v-for="dato in datos.destinations" :key="dato"
-                    :class="['btn-planet', planetSelected.name === dato.name ? 'active' : '']"
-                    @click="planetSelected = dato">
-                    {{ dato.name }}
+                <div v-for="planet in jsonData.destinations" :key="planet"
+                    :class="['btn-planet', planetSelected.name === planet.name ? 'active' : '']"
+                    @click="planetSelected = planet">
+                    {{ planet.name }}
                 </div>
             </div>
             <div class="name-planet">{{ planetSelected.name }}</div>
@@ -45,4 +45,5 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+
 </style>

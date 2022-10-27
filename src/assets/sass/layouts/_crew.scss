@@ -1,0 +1,83 @@
+.content-crew {
+    display: flex;
+    color: $white;
+    justify-content: space-evenly;
+    gap: 1rem;
+    align-items: center;
+
+    .person-side {
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+
+        .person-img {
+            height: 70vh;
+        }
+
+        img {
+            height: 99.4%
+        }
+    }
+
+    .info-side {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        margin: 0rem 0.5rem;
+
+        .title {
+            font-size: 2.8rem;
+            letter-spacing: 0.472rem;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+
+            strong {
+                opacity: 30%;
+            }
+        }
+
+        .role {
+            font-family: 'Bellefair';
+            font-size: 3.2rem;
+            opacity: 50%;
+            text-transform: uppercase;
+        }
+
+        .name {
+            font-family: 'Bellefair';
+            font-size: 5.6rem;
+            text-transform: uppercase;
+        }
+
+        .bio {
+            font-family: 'Barlow';
+            font-size: 1.8rem;
+            width: 35rem;
+            color: $purple-font;
+            line-height: 3.2rem;
+            letter-spacing: .01rem;
+        }
+
+        .navigation-crew {
+            display: flex;
+            gap: 1rem;
+            margin: 3rem 0rem;
+
+            .circle {
+                opacity: 20%;
+                width: 1.5rem;
+                height: 1.5rem;
+                background-color: $white;
+                border-radius: 90px;
+                transition: 0.5s;
+                cursor: pointer;
+            }
+
+            .active {
+                opacity: 100%;
+            }
+
+
+        }
+    }
+}
