@@ -1,2 +1,8 @@
-@import 'styles';
-@import 'mixins';
+@import './base/mixins';
+@import './base/globales';
+@import './base/variables';
+@import './layouts/home';
+@import './layouts/destination';
+@import './layouts/header';
+@import './layouts/crew';
+@import './layouts/technology';

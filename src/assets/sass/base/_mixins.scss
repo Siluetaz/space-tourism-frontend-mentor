@@ -1,0 +1,35 @@
+@mixin mobile {
+    @media (max-width: 400px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+
+    @media (min-width: 1024px) {
+        @content;
+    }
+}
+
+@mixin desktop-large {
+
+    @media (min-width: 1440px) {
+        @content;
+    }
+}
+
+@keyframes hover-btn-explore {
+    0% {
+        outline: 0rem solid #ffffff1a;
+    }
+
+    100% {
+        outline: 5rem solid #ffffff1a;
+    }
+}

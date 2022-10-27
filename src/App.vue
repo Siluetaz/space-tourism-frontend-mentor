@@ -1,103 +1,53 @@
 <script setup>
-import Home from "./components/Home.vue";
+import { ref, onMounted, computed, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import Home from './components/Home.vue'
+import Destiantion from './components/Destination.vue'
+
+let active = ref('')
+const route = useRoute()
+
+const changeActive = (view) => {
+  active.value = view
+
+}
+
+onMounted(async () => {
+})
+watch(route, async (newValue) => {
+  active.value = newValue.name
+})
 </script>
 
 <template>
   <div class="container">
-    <nav class="navbar">
+    <header class="navbar">
       <div class="img-logo">
         <img src="./../assets/shared/logo.svg" alt="">
       </div>
       <hr class="line">
       <div class="nav">
         <div class="nav-options">
-          <div class="nav-btn"><a href="">
-              <strong> 00</strong> HOME
-            </a>
-          </div>
-          <div class="nav-btn">
-            <a href=""><strong>01</strong> DESTINATION</a>
-          </div>
-          <div class="nav-btn">
-            <a href=""><strong>02</strong> CREW</a>
-          </div>
-          <div class="nav-btn">
-            <a href=""><strong>03</strong> TECHNOLOGY</a>
-          </div>
+          <router-link to="/" :class="['nav-btn', active === 'Home' ? 'active' : '']">
+            <div><strong>00</strong> HOME</div>
+          </router-link>
+          <router-link to="/destination" :class="['nav-btn', active === 'Destination' ? 'active' : '']">
+            <div><strong>01</strong> DESTINATION</div>
+          </router-link>
+          <router-link to="/crew" :class="['nav-btn', active === 'Crew' ? 'active' : '']">
+            <div><strong>02</strong> CREW</div>
+          </router-link>
+
+          <router-link to="/technology" :class="['nav-btn', active === 'Technology' ? 'active' : '']">
+            <div><strong>03</strong> TECHNOLOGY</div>
+          </router-link>
         </div>
       </div>
-    </nav>
-    <home></home>
+    </header>
+    <router-view class="content-view"></router-view>
   </div>
 </template>
 
-<style lang="scss" scoped>
-.container {
-  height: 100vh;
+<style lang="scss">
 
-  .navbar {
-    position: fixed;
-    right: 0rem;
-    left: 0;
-    top: 3.6rem;
-    display: grid;
-    grid-template-columns: repeat(19, minmax(0, 1fr));
-    align-items: center;
-
-    .img-logo {
-      grid-column: 1/3;
-      grid-row: 1/1;
-      text-align: center;
-    }
-
-    .line {
-      grid-column: 3/9;
-      grid-row: 1/1;
-      z-index: 1;
-      transform: translateX(5%);
-      opacity: 20%;
-      width: 100%;
-    }
-
-    //min-width: 54rem;
-    .nav {
-      grid-column: 9/20;
-      grid-row: 1/1;
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(40.7742px);
-      justify-content: center;
-      display: grid;
-      grid-template-columns: repeat(23, minmax(0, 1fr));
-      align-items: center;
-
-      .nav-options {
-        grid-column: 4/24;
-        display: flex;
-        gap: 5%;
-
-        .nav-btn {
-          letter-spacing: 0.25rem;
-          height: 9rem;
-          align-items: center;
-          display: flex;
-          cursor: pointer;
-          transition: .3s;
-
-          &:hover {
-            box-shadow: inset 0px -0.3rem rgb(204, 204, 204);
-          }
-          &:active {
-            box-shadow: inset 0px -0.3rem white;
-          }
-
-          a {
-            text-decoration: none;
-            color: white;
-          }
-        }
-
-      }
-    }
-  }
-}
 </style>
