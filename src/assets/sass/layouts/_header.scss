@@ -52,7 +52,7 @@
                 }
 
                 .nav-btn {
-                    letter-spacing: 0.25rem;
+                    letter-spacing: 0.27rem;
                     height: 9rem;
                     align-items: center;
                     display: flex;
@@ -60,7 +60,7 @@
                     transition: .3s;
                     color: $white;
                     text-decoration: none;
-
+                    
                     &:hover {
                         box-shadow: inset 0 -0.3rem 0 -0.1rem $hover-btn;
                     }
