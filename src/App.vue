@@ -39,6 +39,7 @@ watch(route, async (newValue) => {
   <div class="container">
     <header class="navbar">
       <div class="img-logo">
+        <img src="./../assets/shared/logo.svg" alt="">
       </div>
       <hr class="line">
       <div class="nav">
