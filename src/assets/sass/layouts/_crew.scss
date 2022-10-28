@@ -1,35 +1,45 @@
 .content-crew {
-    display: flex;
     color: $white;
-    justify-content: space-evenly;
-    gap: 1rem;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr, 1fr;
+    grid-template-rows: repeat(11, 1fr);
+    justify-content: space-around;
 
     .person-side {
-        height: 100%;
+        grid-column: 2/2;
+        grid-row: 2/12;
         display: flex;
         align-items: flex-end;
 
         .person-img {
-            height: 70vh;
+            display: flex;
+            align-items: flex-end;
+            justify-content: end;
+            height: 100%;
+            width: 14rem;
         }
 
         img {
-            height: 99.4%
+            height: 99%;
         }
     }
 
-    .info-side {
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
-        margin: 0rem 0.5rem;
+    .crew-info-side {
+        z-index: 1;
+        grid-column: 1/1;
+        grid-row: 2/11;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(11, minmax(0, 1fr));
+        margin: 0 0 0 1rem;
+        width: 613.1px;
+        max-width: 613.1px;
 
         .title {
+            grid-row: 1/2;
             font-size: 2.8rem;
-            letter-spacing: 0.472rem;
+            letter-spacing: 0.4rem;
             text-transform: uppercase;
-            margin-bottom: 3rem;
 
             strong {
                 opacity: 30%;
@@ -37,6 +47,7 @@
         }
 
         .role {
+            grid-row: 3/4;
             font-family: 'Bellefair';
             font-size: 3.2rem;
             opacity: 50%;
@@ -44,12 +55,14 @@
         }
 
         .name {
+            grid-row: 4/6;
             font-family: 'Bellefair';
             font-size: 5.6rem;
             text-transform: uppercase;
         }
 
         .bio {
+            grid-row: 6/9;
             font-family: 'Barlow';
             font-size: 1.8rem;
             width: 35rem;
@@ -59,9 +72,9 @@
         }
 
         .navigation-crew {
+            grid-row: 10/11;
             display: flex;
             gap: 1rem;
-            margin: 3rem 0rem;
 
             .circle {
                 opacity: 20%;

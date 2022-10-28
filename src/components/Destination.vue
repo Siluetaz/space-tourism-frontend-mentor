@@ -6,7 +6,6 @@ let jsonData = data
 let planetSelected = ref(jsonData.destinations[0])
 
 onMounted(() => {
-    document.body.style.backgroundImage = 'url(./../../assets/destination/background-destination-desktop.jpg)'
 })
 </script>
 
@@ -44,6 +43,6 @@ onMounted(() => {
     </div>
 </template>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
+  
 </style>

@@ -3,7 +3,7 @@ import { onMounted } from "@vue/runtime-core";
 
 
 onMounted(() => {
-    document.body.style.backgroundImage = 'url(./../../assets/home/background-home-desktop.jpg)'
+   
 })
 </script>
 

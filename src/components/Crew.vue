@@ -1,20 +1,21 @@
 <script setup>
-import { ref, onMounted } from "@vue/runtime-core"
+import { ref, onMounted, watch } from "@vue/runtime-core"
 import data from './../../data.json'
 
 let jsonData = data
 let personSelected = ref(jsonData.crew[0])
 
 onMounted(() => {
-    document.body.style.backgroundImage = 'url(./../../assets/crew/background-crew-desktop.jpg)'
-    console.log(personSelected)
+    // 
+
 })
+
 </script>
 
 <template>
     <div class="content-crew">
 
-        <div class="info-side">
+        <div class="crew-info-side">
             <div class="title"><strong>02</strong> Meet your crew</div>
             <div class="role">{{ personSelected.role }}</div>
             <div class="name">{{ personSelected.name }}
@@ -37,5 +38,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+
 
 </style>

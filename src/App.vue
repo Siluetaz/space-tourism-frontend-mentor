@@ -15,6 +15,20 @@ const changeActive = (view) => {
 onMounted(async () => {
 })
 watch(route, async (newValue) => {
+  // switch (newValue.name) {
+  //   case 'Home':
+  //     document.body.style.backgroundImage = 'url(./../../assets/home/background-home-desktop.jpg)'
+  //     break;
+  //   case 'Destination':
+  //     document.body.style.backgroundImage = 'url(./../../assets/destination/background-destination-desktop.jpg)'
+  //     break;
+  //   case 'Crew':
+  //     document.body.style.backgroundImage = 'url(./../../assets/crew/background-crew-desktop.jpg)'
+  //     break;
+  //   case 'Technology':
+  //     document.body.style.backgroundImage = 'url(./../../assets/technology/background-technology-desktop.jpg)'
+  //     break;
+  // }
   active.value = newValue.name
 })
 </script>

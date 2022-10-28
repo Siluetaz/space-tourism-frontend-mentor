@@ -13,6 +13,7 @@
             .slogan {
                 font-size: 2.8rem;
                 letter-spacing: 0.472rem;
+                color: $purple-font;
             }
 
             .title {
@@ -26,6 +27,8 @@
                 font-size: 1.8rem;
                 letter-spacing: 0.1rem;
                 width: 45rem;
+                color: $purple-font;
+                line-height: 3.2rem;
             }
         }
     }
