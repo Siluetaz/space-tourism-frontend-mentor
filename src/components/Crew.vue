@@ -6,7 +6,7 @@ let jsonData = data
 let personSelected = ref(jsonData.crew[0])
 
 onMounted(() => {
-    // 
+
 
 })
 
@@ -38,6 +38,5 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-
 
 </style>

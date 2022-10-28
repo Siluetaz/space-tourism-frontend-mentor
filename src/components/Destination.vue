@@ -6,6 +6,7 @@ let jsonData = data
 let planetSelected = ref(jsonData.destinations[0])
 
 onMounted(() => {
+
 })
 </script>
 
@@ -43,6 +44,6 @@ onMounted(() => {
     </div>
 </template>
 
-<style lang="scss">
-  
+<style lang="scss" scoped>
+
 </style>

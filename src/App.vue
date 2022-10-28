@@ -6,38 +6,39 @@ import Destiantion from './components/Destination.vue'
 
 let active = ref('')
 const route = useRoute()
-
+let backgroundImage = ref('home')
 const changeActive = (view) => {
   active.value = view
-
 }
 
 onMounted(async () => {
+
 })
 watch(route, async (newValue) => {
-  // switch (newValue.name) {
-  //   case 'Home':
-  //     document.body.style.backgroundImage = 'url(./../../assets/home/background-home-desktop.jpg)'
-  //     break;
-  //   case 'Destination':
-  //     document.body.style.backgroundImage = 'url(./../../assets/destination/background-destination-desktop.jpg)'
-  //     break;
-  //   case 'Crew':
-  //     document.body.style.backgroundImage = 'url(./../../assets/crew/background-crew-desktop.jpg)'
-  //     break;
-  //   case 'Technology':
-  //     document.body.style.backgroundImage = 'url(./../../assets/technology/background-technology-desktop.jpg)'
-  //     break;
-  // }
+  switch (newValue.name) {
+    case 'Home':
+      backgroundImage.value = 'home'
+      break;
+    case 'Destination':
+      backgroundImage.value = 'destination'
+      break;
+    case 'Crew':
+      backgroundImage.value = 'crew'
+      break;
+    case 'Technology':
+      backgroundImage.value = 'technology'
+      break;
+  }
   active.value = newValue.name
 })
 </script>
 
 <template>
+  <img class="background" :src="'./../../assets/' + backgroundImage + '/background-' + backgroundImage + '-desktop.jpg'"
+    alt="">
   <div class="container">
     <header class="navbar">
       <div class="img-logo">
-        <img src="./../assets/shared/logo.svg" alt="">
       </div>
       <hr class="line">
       <div class="nav">
