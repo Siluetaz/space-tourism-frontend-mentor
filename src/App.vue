@@ -7,12 +7,15 @@ import Destiantion from './components/Destination.vue'
 let active = ref('')
 const route = useRoute()
 let backgroundImage = ref('home')
+let loaded = ref('./assets/load.gif')
 const changeActive = (view) => {
   active.value = view
 }
 
 onMounted(async () => {
-
+  setTimeout(() => {
+    loaded.value = ''
+  }, 3000)
 })
 watch(route, async (newValue) => {
   switch (newValue.name) {
@@ -34,8 +37,14 @@ watch(route, async (newValue) => {
 </script>
 
 <template>
-  <img class="background" :src="'./../../assets/' + backgroundImage + '/background-' + backgroundImage + '-desktop.jpg'"
-    alt="">
+
+  <div class="loading" v-if="loaded !== ''"><img src="./assets/load.gif" alt=""></div>
+
+  <transition name="fade" v-if="loaded === ''">
+    <img class="background"
+      :src="'./../../assets/' + backgroundImage + '/background-' + backgroundImage + '-desktop.jpg'"
+      :key="backgroundImage" alt="">
+  </transition>
   <div class="container">
     <header class="navbar">
       <div class="img-logo">
@@ -65,5 +74,30 @@ watch(route, async (newValue) => {
 </template>
 
 <style lang="scss">
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.8s ease;
+}
 
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-load-enter-active,
+.fade-load-leave-active {}
+
+.fade-load-enter-from,
+.fade-load-leave-to {}
+
+.loading {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+  background-color: black;
+}
 </style>

@@ -3,7 +3,7 @@
     grid-template-columns: repeat(11, minmax(0, 1fr));
     grid-template-rows: repeat(11, 1fr);
     color: $white;
-
+    overflow: hidden;
     .title {
         grid-column: 2/12;
         grid-row: 2/3;
@@ -42,7 +42,7 @@
                     width: 8rem;
                     height: 8rem;
                     background: none;
-                    border: 0.1rem solid $white-opacity;
+                    border: 0.2rem solid $white-opacity;
                     border-radius: 90rem;
                     font-size: 3.2rem;
                     letter-spacing: 0.2rem;
@@ -50,7 +50,7 @@
                     cursor: pointer;
 
                     &:hover {
-                        border: 0.1rem solid $white;
+                        border: 0.2rem solid $white;
                     }
                 }
 
