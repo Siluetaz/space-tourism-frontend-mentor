@@ -31,12 +31,26 @@ onMounted(() => {
         </div>
         <div class="person-side">
             <div class="person-img">
-                <img :src="personSelected.images.webp" alt="">
+                <transition name="fade-crew">
+                    <img :src="personSelected.images.webp" :key="personSelected.images.webp" alt="">
+                </transition>
             </div>
         </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
+.fade-crew-enter-active {
+    display: none;
+    transition: all .4s;
+}
 
+.fade-crew-leave-active {
+    transition: all .4s cubic-bezier(1.0, 1.0, 1.0, 1.0);
+}
+
+.fade-crew-enter,
+.fade-crew-leave-to {
+    opacity: 0;
+}
 </style>

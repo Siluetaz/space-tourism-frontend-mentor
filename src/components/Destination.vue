@@ -15,7 +15,9 @@ onMounted(() => {
         <div class="planet-side">
             <div class="title"><strong>01</strong> Pick your destination</div>
             <div class="planet-img">
-                <img :src="planetSelected.images.png" alt="">
+                <transition name="fade-planet">
+                    <img :src="planetSelected.images.webp" :key="planetSelected.images.webp" alt="">
+                </transition>
             </div>
         </div>
         <div class="info-side">
@@ -26,7 +28,7 @@ onMounted(() => {
                     {{ planet.name }}
                 </div>
             </div>
-            <div class="name-planet">{{ planetSelected.name }}</div>
+            <div class="name-planet" :key="planetSelected.name">{{ planetSelected.name }}</div>
             <div class="description-planet">{{ planetSelected.description }}
             </div>
             <div class="line"></div>
@@ -45,5 +47,18 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+.fade-planet-enter-active {
+    display: none;
+    transition: all .4s;
+}
 
+.fade-planet-leave-active {
+    transition: all .4s cubic-bezier(1.0, 1.0, 1.0, 1.0);
+}
+
+.fade-planet-enter,
+
+.fade-planet-leave-to {
+    opacity: 0;
+}
 </style>

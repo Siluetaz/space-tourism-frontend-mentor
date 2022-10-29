@@ -43,15 +43,16 @@
             letter-spacing: 0.2rem;
             border: none;
             background-color: $white;
-
-
             cursor: pointer;
+            transition: outline 0.5s;
+            outline: 0rem solid #ffffff1a;
+
+            &:hover {
+                outline: 6rem solid #ffffff1a;
+                border-radius: 90rem;
+
+            }
         }
 
-        &:hover {
-            border-radius: 90rem;
-            animation: hover-btn-explore 0.5s forwards;
-
-        }
     }
 }

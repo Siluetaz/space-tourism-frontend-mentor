@@ -41,25 +41,17 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .slide-fade-enter-active {
-    display: none;
     transition: all .4s ease;
+    display: none;
 }
 
 .slide-fade-leave-active {
     transition: all .4s cubic-bezier(1.0, 0.5, 0.8, 1.0);
 }
 
-.slide-fade-enter {
-    transform: translateX(-30px);
-    display: initial;
-    transition: all .5s ease;
-}
-
-.slide-fade-leave-to
-
-/* .slide-fade-leave-active below version 2.1.8 */
-    {
-    transform: translateX(4rem);
+.slide-fade-enter,
+.slide-fade-leave-to {
+    transform: translateX(5rem);
     opacity: 0;
 }
 </style>

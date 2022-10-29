@@ -39,8 +39,7 @@ watch(route, async (newValue) => {
 <template>
 
   <div class="loading" v-if="loaded !== ''"><img src="./assets/load.gif" alt=""></div>
-
-  <transition name="fade" v-if="loaded === ''">
+  <transition name="fade">
     <img class="background"
       :src="'./../../assets/' + backgroundImage + '/background-' + backgroundImage + '-desktop.jpg'"
       :key="backgroundImage" alt="">
@@ -84,20 +83,19 @@ watch(route, async (newValue) => {
   opacity: 0;
 }
 
-.fade-load-enter-active,
-.fade-load-leave-active {}
-
-.fade-load-enter-from,
-.fade-load-leave-to {}
-
 .loading {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
   z-index: 2;
   background-color: black;
+
+  img {
+    width: 65rem;
+    height: 50rem;
+  }
 }
 </style>
