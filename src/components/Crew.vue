@@ -42,11 +42,11 @@ onMounted(() => {
 <style lang="scss" scoped>
 .fade-crew-enter-active {
     display: none;
-    transition: all .4s;
+    transition: all .35s;
 }
 
 .fade-crew-leave-active {
-    transition: all .4s cubic-bezier(1.0, 1.0, 1.0, 1.0);
+    transition: all .35s cubic-bezier(1.0, 1.0, 1.0, 1.0);
 }
 
 .fade-crew-enter,
