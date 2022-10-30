@@ -47,19 +47,5 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-.fade-planet-enter-active {
-    display: none;
-    transition: all .4s;
-}
 
-.fade-planet-leave-active {
-    position: fixed;
-    transition: all .4s cubic-bezier(1.0, 1.0, 1.0, 1.0);
-}
-
-.fade-planet-enter,
-
-.fade-planet-leave-to {
-    opacity: 0;
-}
 </style>

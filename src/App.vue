@@ -9,19 +9,21 @@ let backgroundImage = ref('')
 let loaded = ref('./assets/load.gif')
 let device = ref('')
 let imgSection = ref('home')
-let icon = ref('hamburger')
+let iconLink = ref('./../../assets/shared/icon-hamburger.svg')
+let icon = ref('hamburguer')
 let menuAction = ref('closeModal')
-const changeState = (iconState) => {
-  if (iconState === 'hamburger') {
+const iconState = (iconValue) => {
+  if (iconValue === 'hamburger') {
     icon.value = 'close'
     menuAction.value = 'openModal'
   } else {
     icon.value = 'hamburger'
     menuAction.value = 'closeModal'
   }
+  iconLink.value = `./../../assets/shared/icon-${icon.value}.svg`
 }
 const catchSize = () => {
-  let screenSize = document.body.clientWidth;
+  let screenSize = document.body.clientWidth.toFixed();
   if (screenSize <= 426) {
     device.value = 'mobile'
   } else if (screenSize <= 768) {
@@ -29,6 +31,8 @@ const catchSize = () => {
   } else {
     device.value = 'desktop'
   }
+  console.log(screenSize)
+  console.log(device.value)
   backgroundImage.value = './../../assets/' + imgSection.value + '/background-' + imgSection.value + '-' + device.value + '.jpg'
 }
 
@@ -55,9 +59,10 @@ watch(route, async (newValue) => {
 onMounted(() => {
   setTimeout(() => {
     loaded.value = ''
-  }, 3000)
+  }, 0)
+  catchSize()
 })
-catchSize()
+
 </script>
 
 <template>
@@ -72,21 +77,21 @@ catchSize()
       </div>
       <hr class="line">
       <transition name="fade-menu">
-        <img class="img-menu" :src="'./../assets/shared/icon-' + icon + '.svg'" @click="changeState(icon)" :key="icon">
+        <img class="img-menu" :src="iconLink" @click="iconState(icon)" :key="iconLink">
       </transition>
       <div :class="['nav', device === 'mobile' ? menuAction : '']">
         <div class="nav-options">
-          <router-link to="/" class="nav-btn">
+          <router-link to="/space-tourism/dist/" class="nav-btn">
             <div><strong>00</strong> HOME</div>
           </router-link>
-          <router-link to="/destination" class="nav-btn">
+          <router-link to="/space-tourism/dist/destination" class="nav-btn">
             <div><strong>01</strong> DESTINATION</div>
           </router-link>
-          <router-link to="/crew" class="nav-btn">
+          <router-link to="/space-tourism/dist/crew" class="nav-btn">
             <div><strong>02</strong> CREW</div>
           </router-link>
 
-          <router-link to="/technology" class="nav-btn">
+          <router-link to="/space-tourism/dist/technology" class="nav-btn">
             <div><strong>03</strong> TECHNOLOGY</div>
           </router-link>
         </div>
