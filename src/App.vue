@@ -4,45 +4,66 @@ import { useRoute, useRouter } from 'vue-router'
 import Home from './components/Home.vue'
 import Destiantion from './components/Destination.vue'
 
-let active = ref('')
 const route = useRoute()
-let backgroundImage = ref('home')
+let backgroundImage = ref('')
 let loaded = ref('./assets/load.gif')
-const changeActive = (view) => {
-  active.value = view
+let device = ref('')
+let imgSection = ref('home')
+let icon = ref('hamburger')
+let menuAction = ref('closeModal')
+const changeState = (iconState) => {
+  if (iconState === 'hamburger') {
+    icon.value = 'close'
+    menuAction.value = 'openModal'
+  } else {
+    icon.value = 'hamburger'
+    menuAction.value = 'closeModal'
+  }
+}
+const catchSize = () => {
+  let screenSize = document.body.clientWidth;
+  if (screenSize <= 426) {
+    device.value = 'mobile'
+  } else if (screenSize <= 768) {
+    device.value = 'tablet'
+  } else {
+    device.value = 'desktop'
+  }
+  backgroundImage.value = './../../assets/' + imgSection.value + '/background-' + imgSection.value + '-' + device.value + '.jpg'
 }
 
-onMounted(async () => {
+window.addEventListener('resize', catchSize)
+
+watch(route, async (newValue) => {
+
+  switch (newValue.name) {
+    case 'Home':
+      imgSection.value = 'home'
+      break;
+    case 'Destination':
+      imgSection.value = 'destination'
+      break;
+    case 'Crew':
+      imgSection.value = 'crew'
+      break;
+    case 'Technology':
+      imgSection.value = 'technology'
+      break;
+  }
+  backgroundImage.value = './../../assets/' + imgSection.value + '/background-' + imgSection.value + '-' + device.value + '.jpg'
+})
+onMounted(() => {
   setTimeout(() => {
     loaded.value = ''
   }, 3000)
 })
-watch(route, async (newValue) => {
-  switch (newValue.name) {
-    case 'Home':
-      backgroundImage.value = 'home'
-      break;
-    case 'Destination':
-      backgroundImage.value = 'destination'
-      break;
-    case 'Crew':
-      backgroundImage.value = 'crew'
-      break;
-    case 'Technology':
-      backgroundImage.value = 'technology'
-      break;
-  }
-  active.value = newValue.name
-})
+catchSize()
 </script>
 
 <template>
-
   <div class="loading" v-if="loaded !== ''"><img src="./assets/load.gif" alt=""></div>
-  <transition name="fade">
-    <img class="background"
-      :src="'./../../assets/' + backgroundImage + '/background-' + backgroundImage + '-desktop.jpg'"
-      :key="backgroundImage" alt="">
+  <transition name="fade" v-else>
+    <img class="background" :src="backgroundImage" :key="backgroundImage" alt="">
   </transition>
   <div class="container">
     <header class="navbar">
@@ -50,19 +71,22 @@ watch(route, async (newValue) => {
         <img src="./../assets/shared/logo.svg" alt="">
       </div>
       <hr class="line">
-      <div class="nav">
+      <transition name="fade-menu">
+        <img class="img-menu" :src="'./../assets/shared/icon-' + icon + '.svg'" @click="changeState(icon)" :key="icon">
+      </transition>
+      <div :class="['nav', device === 'mobile' ? menuAction : '']">
         <div class="nav-options">
-          <router-link to="/" :class="['nav-btn', active === 'Home' ? 'active' : '']">
+          <router-link to="/" class="nav-btn">
             <div><strong>00</strong> HOME</div>
           </router-link>
-          <router-link to="/destination" :class="['nav-btn', active === 'Destination' ? 'active' : '']">
+          <router-link to="/destination" class="nav-btn">
             <div><strong>01</strong> DESTINATION</div>
           </router-link>
-          <router-link to="/crew" :class="['nav-btn', active === 'Crew' ? 'active' : '']">
+          <router-link to="/crew" class="nav-btn">
             <div><strong>02</strong> CREW</div>
           </router-link>
 
-          <router-link to="/technology" :class="['nav-btn', active === 'Technology' ? 'active' : '']">
+          <router-link to="/technology" class="nav-btn">
             <div><strong>03</strong> TECHNOLOGY</div>
           </router-link>
         </div>
@@ -83,19 +107,13 @@ watch(route, async (newValue) => {
   opacity: 0;
 }
 
-.loading {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  z-index: 2;
-  background-color: black;
+.fade-menu-enter-active,
+.fade-menu-leave-active {
+  transition: opacity 0.4s ease;
+}
 
-  img {
-    width: 65rem;
-    height: 50rem;
-  }
+.fade-menu-enter-from,
+.fade-menu-leave-to {
+  opacity: 0;
 }
 </style>

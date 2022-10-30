@@ -53,6 +53,7 @@ onMounted(() => {
 }
 
 .fade-planet-leave-active {
+    position: fixed;
     transition: all .4s cubic-bezier(1.0, 1.0, 1.0, 1.0);
 }
 

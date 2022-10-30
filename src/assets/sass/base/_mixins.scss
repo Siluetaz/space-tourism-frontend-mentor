@@ -1,11 +1,11 @@
 @mixin mobile {
-    @media (max-width: 400px) {
+    @media (max-width: 426px) {
         @content;
     }
 }
 
 @mixin tablet {
-    @media (min-width: 768px) {
+    @media (max-width: 768px) {
         @content;
     }
 }
@@ -34,3 +34,23 @@
     }
 }
 
+@keyframes openMenu {
+    0% {
+        transform: translateX(100%);
+    }
+    
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes closeMenu {
+    0% {
+        transform: translateX(0%);
+
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
