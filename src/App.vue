@@ -65,12 +65,11 @@ onMounted(() => {
 
 <template>
 
-
+  <div class="loading" v-if="loaded !== ''"><img src="./assets/load.gif" alt=""></div>
+  <transition name="fade" v-else>
+    <img class="background" :src="backgroundImage" :key="backgroundImage" alt="">
+  </transition>
   <div class="container">
-    <div class="loading" v-if="loaded !== ''"><img src="./assets/load.gif" alt=""></div>
-    <transition name="fade" v-else>
-      <img class="background" :src="backgroundImage" :key="backgroundImage" alt="">
-    </transition>
     <header class="navbar">
       <div class="img-logo">
         <img src="./../assets/shared/logo.svg" alt="">

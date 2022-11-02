@@ -2,25 +2,16 @@
     height: 100vh;
     width: 100%;
 
-    .background {
-        width: 100%;
-        position: absolute;
-        z-index: -1;
+    @include tablet {
         height: 100%;
-
-        @include tablet {
-            height: initial;
-            min-height: 100vh;
-        }
     }
 
     .content-view {
         height: 82vh;
 
         @include tablet {
-            margin-top: 0;
             padding-top: 0;
-            height: 88vh;
+            height: initial;
         }
     }
 
@@ -36,6 +27,10 @@
             margin-top: 0;
             padding-top: 0;
             height: 12vh;
+        }
+
+        @include mobile {
+            margin: 0rem 0.5rem;
         }
 
         .img-logo {
@@ -54,8 +49,11 @@
             }
 
             @include mobile {
-                width: 4rem;
-                height: 4rem;
+                img {
+                    width: 4rem;
+                    height: 4rem;
+                }
+
             }
         }
 
@@ -194,4 +192,15 @@
 
 .closeModal {
     animation: closeMenu .5s forwards;
+}
+
+.background {
+    width: 100vw;
+    position: fixed;
+    z-index: -1;
+    height: 100%;
+
+    @include tablet {
+        min-height: 100vh;
+    }
 }

@@ -14,13 +14,13 @@ onMounted(() => {
 
 <template>
     <main class="content-crew">
+        <h1 class="title"><strong>02</strong> Meet your crew</h1>
         <section class="crew-info-side">
-            <h1 class="title"><strong>02</strong> Meet your crew</h1>
             <div class="role">{{ personSelected.role }}</div>
             <div class="name">{{ personSelected.name }}
             </div>
-            <div class="bio">{{ personSelected.bio }}
-            </div>
+            <p class="bio">{{ personSelected.bio }}
+            </p>
             <div class="navigation-crew">
                 <div v-for="person in jsonData.crew" :key="person"
                     :class="['circle', personSelected.name === person.name ? 'active' : '']"
@@ -34,7 +34,8 @@ onMounted(() => {
                     <img :src="personSelected.images.webp" :key="personSelected.images.webp" alt="">
                 </transition>
             </div>
-            </section>
+        </section>
+
     </main>
 </template>
 
