@@ -5,6 +5,18 @@
     color: $white;
     overflow: hidden;
 
+
+    @include tablet {
+        row-gap: 5rem;
+        margin: 5rem 0 0 0;
+
+    }
+
+    @include mobile {
+        row-gap: 0rem;
+        margin: 2rem 0 0 0;
+    }
+
     .title {
         grid-column: 2/12;
         grid-row: 2/3;
@@ -16,6 +28,17 @@
         strong {
             opacity: 30%;
         }
+
+        @include tablet {
+            grid-row: 1/2;
+            font-size: 2rem;
+            letter-spacing: 0.338rem;
+        }
+
+        @include mobile {
+            font-size: 1.6rem;
+            letter-spacing: 0.27rem;
+        }
     }
 
     .tech-info-side {
@@ -25,6 +48,11 @@
         grid-template-columns: repeat(11, 1fr);
         grid-template-rows: repeat(11, minmax(0, 1fr));
 
+        @include tablet {
+            grid-column: 1/12;
+            grid-row: 6/12;
+        }
+
         .tech {
             display: flex;
             gap: 2.6rem;
@@ -33,10 +61,19 @@
             align-items: center;
             margin-right: 1rem;
 
+            @include tablet {
+                flex-direction: column;
+                margin: 0;
+            }
+
             .navigation-tech {
                 display: flex;
                 flex-direction: column;
                 gap: 3rem;
+
+                @include tablet {
+                    flex-direction: row;
+                }
 
                 .circle-tech {
                     display: flex;
@@ -55,7 +92,16 @@
                     &:hover {
                         border: 0.2rem solid $white;
                     }
+
+                    @include tablet {
+                        width: 6rem;
+                        height: 6rem;
+                        font-size: 2.4rem;
+                        letter-spacing: 0.15rem;
+                    }
                 }
+
+
 
                 .active {
                     background-color: $white;
@@ -67,7 +113,11 @@
                 display: grid;
                 grid-template-rows: repeat(11, minmax(0, 1fr));
                 gap: 0.5rem;
-                height: 80%;
+
+                @include tablet {
+                    text-align: center;
+                    justify-items: center;
+                }
 
                 .subtitle {
                     grid-column: 1/2;
@@ -76,6 +126,16 @@
                     text-transform: uppercase;
                     line-height: 1.92rem;
                     letter-spacing: 0.27rem;
+
+                    @include tablet {
+                        font-size: 1.6rem;
+                        letter-spacing: 0.27rem;
+                    }
+
+                    @include mobile {
+                        font-size: 1.4rem;
+                        letter-spacing: 0.236rem;
+                    }
                 }
 
                 .name {
@@ -86,6 +146,15 @@
                     text-transform: uppercase;
                     display: flex;
                     align-items: center;
+
+                    @include tablet {
+                        font-size: 4rem;
+                        letter-spacing: 0.338rem;
+                    }
+
+                    @include mobile {
+                        font-size: 2.4rem;
+                    }
                 }
 
                 .description-tech {
@@ -97,6 +166,16 @@
                     line-height: 3.2rem;
                     letter-spacing: .01rem;
                     max-width: 35.1rem;
+
+                    @include tablet {
+                        font-size: 1.6rem;
+                        line-height: 2.8rem;
+                    }
+
+                    @include mobile {
+                        font-size: 1.5rem;
+                        line-height: 2.5rem;
+                    }
                 }
             }
         }
@@ -113,6 +192,16 @@
         justify-content: end;
         align-items: center;
 
+        @include tablet {
+            grid-column: 1/12;
+            grid-row: 2/6;
+            max-height: 31rem;
+        }
+
+        @include mobile {
+            max-height: 17rem;
+        }
+
         .tech-img {
             min-width: 28rem;
             max-width: 48rem;
@@ -120,6 +209,14 @@
 
             img {
                 width: 100%;
+            }
+
+            @include tablet {
+                min-width: initial;
+                max-width: initial;
+                width: 100%;
+                height: 100%;
+
             }
         }
     }

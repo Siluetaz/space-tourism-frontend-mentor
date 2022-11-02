@@ -12,7 +12,7 @@ onMounted(() => {
         <section class="text-side">
             <div class="text">
                 <h1 class="slogan">SO, YOU WANT TO TRAVEL TO</h1>
-                <div class="title">SPACE</div>
+                <div class="title-home">SPACE</div>
                 <div class="description">Let's face it; if you want to go to space, you might as well genuinely go
                     to
                     outer
@@ -23,7 +23,7 @@ onMounted(() => {
             </div>
         </section>
         <section class="explore-side">
-            <button class="btn-explore">EXPLORE</button>
+            <router-link to="/space-tourism/dist/destination"><button class="btn-explore">EXPLORE</button></router-link>
         </section>
     </main>
 </template>

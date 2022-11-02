@@ -3,13 +3,19 @@
     color: $white;
     align-items: center;
     justify-content: space-around;
+
     @include tablet {
         gap: 5rem;
         flex-direction: column;
     }
 
     .text-side {
-        margin: 10rem 0rem 0 0;
+        @include tablet {
+            margin: 3rem 0rem 0 0;
+        }
+        @include mobile{
+            margin: 0rem;
+        }
 
         .text {
             display: flex;
@@ -21,6 +27,7 @@
                 align-items: center;
                 gap: 0rem;
             }
+
 
             .slogan {
                 font-size: 2.8rem;
@@ -39,10 +46,9 @@
                 }
             }
 
-            .title {
+            .title-home {
                 font-family: 'Bellefair';
                 font-size: 15rem;
-                margin-bottom: 1rem;
 
                 @include tablet {
                     font-size: 14.3rem;
