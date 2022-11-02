@@ -97,7 +97,7 @@ onMounted(() => {
       </div>
     </header>
 
-    <router-view class="content-view"></router-view>
+    <router-view class="content-view" :device="device"></router-view>
 
   </div>
 </template>

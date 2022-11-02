@@ -1,9 +1,12 @@
 <script setup>
 import { ref, onMounted, watch } from "@vue/runtime-core"
 import data from './../../data.json'
-
+const props = defineProps({
+    device: String
+})
 let jsonData = data
 let techSelected = ref(jsonData.technology[0])
+
 onMounted(() => {
 
 })
@@ -32,7 +35,8 @@ onMounted(() => {
         <section class="img-side">
             <div class="tech-img">
                 <transition name="slide-fade">
-                    <img :src="techSelected.images.portrait" :key="techSelected.images.portrait" alt="">
+                    <img :src="[device !== 'desktop' ? techSelected.images.landscape : techSelected.images.portrait]"
+                        :key="techSelected.images.portrait" alt="">
                 </transition>
             </div>
         </section>
