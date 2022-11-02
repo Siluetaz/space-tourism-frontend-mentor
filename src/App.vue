@@ -41,21 +41,18 @@ watch(route, async (newValue) => {
   switch (newValue.name) {
     case 'Home':
       imgSection.value = 'home'
-      menuAction.value = 'closeModal'
       break;
     case 'Destination':
       imgSection.value = 'destination'
-      menuAction.value = 'closeModal'
       break;
     case 'Crew':
       imgSection.value = 'crew'
-      menuAction.value = 'closeModal'
       break;
     case 'Technology':
       imgSection.value = 'technology'
-      menuAction.value = 'closeModal'
       break;
   }
+  iconState('close')
   backgroundImage.value = './dist/assets/' + imgSection.value + '/background-' + imgSection.value + '-' + device.value + '.jpg'
 })
 onMounted(() => {
