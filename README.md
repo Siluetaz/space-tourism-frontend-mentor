@@ -24,8 +24,8 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL](https://github.com/Siluetaz/interactive-card-frontend-mentor)
-- [Live site URL](https://siluetaz.github.io/interactive-card-frontend-mentor/)
+- [Solution URL](https://github.com/Siluetaz/space-tourism-frontend-mentor)
+- [Live site URL](https://siluetaz.github.io/space-tourism-frontend-mentor/)
 
 ### Built with
 
