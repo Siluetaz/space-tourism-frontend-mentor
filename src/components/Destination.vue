@@ -11,16 +11,16 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="content-planet">
-        <div class="planet-side">
-            <div class="title"><strong>01</strong> Pick your destination</div>
+    <main class="content-planet">
+        <section class="planet-side">
+            <h1 class="title"><strong>01</strong> Pick your destination</h1>
             <div class="planet-img">
                 <transition name="fade-planet">
                     <img :src="planetSelected.images.webp" :key="planetSelected.images.webp" alt="">
                 </transition>
             </div>
-        </div>
-        <div class="info-side">
+        </section>
+        <section class="info-side">
             <div class="navigation-planet">
                 <div v-for="planet in jsonData.destinations" :key="planet"
                     :class="['btn-planet', planetSelected.name === planet.name ? 'active' : '']"
@@ -29,8 +29,8 @@ onMounted(() => {
                 </div>
             </div>
             <div class="name-planet" :key="planetSelected.name">{{ planetSelected.name }}</div>
-            <div class="description-planet">{{ planetSelected.description }}
-            </div>
+            <p class="description-planet">{{ planetSelected.description }}
+            </p>
             <div class="line"></div>
             <div class="data-section">
                 <div class="data">
@@ -42,8 +42,8 @@ onMounted(() => {
                     <div class="info">{{ planetSelected.travel }}</div>
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 </template>
 
 <style lang="scss" scoped>

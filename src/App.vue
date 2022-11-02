@@ -31,8 +31,6 @@ const catchSize = () => {
   } else {
     device.value = 'desktop'
   }
-  console.log(screenSize)
-  console.log(device.value)
   backgroundImage.value = './../../assets/' + imgSection.value + '/background-' + imgSection.value + '-' + device.value + '.jpg'
 }
 
@@ -66,11 +64,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="loading" v-if="loaded !== ''"><img src="./assets/load.gif" alt=""></div>
-  <transition name="fade" v-else>
-    <img class="background" :src="backgroundImage" :key="backgroundImage" alt="">
-  </transition>
+
+
   <div class="container">
+    <div class="loading" v-if="loaded !== ''"><img src="./assets/load.gif" alt=""></div>
+    <transition name="fade" v-else>
+      <img class="background" :src="backgroundImage" :key="backgroundImage" alt="">
+    </transition>
     <header class="navbar">
       <div class="img-logo">
         <img src="./../assets/shared/logo.svg" alt="">
@@ -80,7 +80,7 @@ onMounted(() => {
         <img class="img-menu" :src="iconLink" @click="iconState(icon)" :key="iconLink">
       </transition>
       <div :class="['nav', device === 'mobile' ? menuAction : '']">
-        <div class="nav-options">
+        <nav class="nav-options">
           <router-link to="/space-tourism/dist/" class="nav-btn">
             <div><strong>00</strong> HOME</div>
           </router-link>
@@ -94,10 +94,12 @@ onMounted(() => {
           <router-link to="/space-tourism/dist/technology" class="nav-btn">
             <div><strong>03</strong> TECHNOLOGY</div>
           </router-link>
-        </div>
+        </nav>
       </div>
     </header>
+
     <router-view class="content-view"></router-view>
+
   </div>
 </template>
 

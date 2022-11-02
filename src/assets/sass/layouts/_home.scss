@@ -3,12 +3,14 @@
     color: $white;
     align-items: center;
     justify-content: space-around;
-
     @include tablet {
+        gap: 5rem;
         flex-direction: column;
     }
 
     .text-side {
+        margin: 10rem 0rem 0 0;
+
         .text {
             display: flex;
             flex-direction: column;
@@ -24,6 +26,7 @@
                 font-size: 2.8rem;
                 letter-spacing: 0.472rem;
                 color: $purple-font;
+                font-weight: initial;
 
                 @include tablet {
                     font-size: 2rem;
@@ -76,6 +79,7 @@
     }
 
     .explore-side {
+
         .btn-explore {
             width: 22rem;
             height: 22rem;
@@ -101,7 +105,7 @@
 
             @include mobile {
                 width: 15rem;
-                    height: 15rem;
+                height: 15rem;
             }
         }
 

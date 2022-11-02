@@ -13,10 +13,9 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="content-crew">
-
-        <div class="crew-info-side">
-            <div class="title"><strong>02</strong> Meet your crew</div>
+    <main class="content-crew">
+        <section class="crew-info-side">
+            <h1 class="title"><strong>02</strong> Meet your crew</h1>
             <div class="role">{{ personSelected.role }}</div>
             <div class="name">{{ personSelected.name }}
             </div>
@@ -28,15 +27,15 @@ onMounted(() => {
                     @click="personSelected = person">
                 </div>
             </div>
-        </div>
-        <div class="person-side">
+        </section>
+        <section class="person-side">
             <div class="person-img">
                 <transition name="fade-crew">
                     <img :src="personSelected.images.webp" :key="personSelected.images.webp" alt="">
                 </transition>
             </div>
-        </div>
-    </div>
+            </section>
+    </main>
 </template>
 
 <style lang="scss" scoped>

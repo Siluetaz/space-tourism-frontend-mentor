@@ -10,9 +10,9 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="content-tech">
-        <div class="title"><strong>03</strong> Space launch 101</div>
-        <div class="tech-info-side">
+    <main class="content-tech">
+        <h1 class="title"><strong>03</strong> Space launch 101</h1>
+        <section class="tech-info-side">
             <div class="tech">
                 <div class="navigation-tech">
                     <div v-for="(tech, index) in jsonData.technology" :key="tech"
@@ -28,15 +28,15 @@ onMounted(() => {
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="img-side">
+        </section>
+        <section class="img-side">
             <div class="tech-img">
                 <transition name="slide-fade">
                     <img :src="techSelected.images.portrait" :key="techSelected.images.portrait" alt="">
                 </transition>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 </template>
 
 <style lang="scss" scoped>
