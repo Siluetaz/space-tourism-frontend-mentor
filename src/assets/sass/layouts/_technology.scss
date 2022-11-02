@@ -20,24 +20,9 @@
     .title {
         grid-column: 2/12;
         grid-row: 2/3;
-        font-size: 2.8rem;
-        letter-spacing: 0.4rem;
-        text-transform: uppercase;
-        font-weight: initial;
-
-        strong {
-            opacity: 30%;
-        }
 
         @include tablet {
             grid-row: 1/2;
-            font-size: 2rem;
-            letter-spacing: 0.338rem;
-        }
-
-        @include mobile {
-            font-size: 1.6rem;
-            letter-spacing: 0.27rem;
         }
     }
 

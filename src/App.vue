@@ -6,10 +6,10 @@ import Destiantion from './components/Destination.vue'
 
 const route = useRoute()
 let backgroundImage = ref('')
-let loaded = ref('./assets/load.gif')
+let loaded = ref(false)
 let device = ref('')
 let imgSection = ref('home')
-let iconLink = ref('./../../assets/shared/icon-hamburger.svg')
+let iconLink = ref('./dist/assets/shared/icon-hamburger.svg')
 let icon = ref('hamburguer')
 let menuAction = ref('closeModal')
 const iconState = (iconValue) => {
@@ -20,7 +20,7 @@ const iconState = (iconValue) => {
     icon.value = 'hamburger'
     menuAction.value = 'closeModal'
   }
-  iconLink.value = `./../../assets/shared/icon-${icon.value}.svg`
+  iconLink.value = `./dist/assets/shared/icon-${icon.value}.svg`
 }
 const catchSize = () => {
   let screenSize = document.body.clientWidth.toFixed();
@@ -31,7 +31,7 @@ const catchSize = () => {
   } else {
     device.value = 'desktop'
   }
-  backgroundImage.value = './../../assets/' + imgSection.value + '/background-' + imgSection.value + '-' + device.value + '.jpg'
+  backgroundImage.value = './dist/assets/' + imgSection.value + '/background-' + imgSection.value + '-' + device.value + '.jpg'
 }
 
 window.addEventListener('resize', catchSize)
@@ -41,23 +41,27 @@ watch(route, async (newValue) => {
   switch (newValue.name) {
     case 'Home':
       imgSection.value = 'home'
+      menuAction.value = 'closeModal'
       break;
     case 'Destination':
       imgSection.value = 'destination'
+      menuAction.value = 'closeModal'
       break;
     case 'Crew':
       imgSection.value = 'crew'
+      menuAction.value = 'closeModal'
       break;
     case 'Technology':
       imgSection.value = 'technology'
+      menuAction.value = 'closeModal'
       break;
   }
-  backgroundImage.value = './../../assets/' + imgSection.value + '/background-' + imgSection.value + '-' + device.value + '.jpg'
+  backgroundImage.value = './dist/assets/' + imgSection.value + '/background-' + imgSection.value + '-' + device.value + '.jpg'
 })
 onMounted(() => {
   setTimeout(() => {
-    loaded.value = ''
-  }, 0)
+    loaded.value = true
+  }, 3000)
   catchSize()
 })
 
@@ -65,7 +69,7 @@ onMounted(() => {
 
 <template>
 
-  <div class="loading" v-if="loaded !== ''"><img src="./assets/load.gif" alt=""></div>
+  <div class="loading" v-if="!loaded"><img src="./assets/load.gif" alt=""></div>
   <transition name="fade" v-else>
     <img class="background" :src="backgroundImage" :key="backgroundImage" alt="">
   </transition>
@@ -80,17 +84,17 @@ onMounted(() => {
       </transition>
       <div :class="['nav', device === 'mobile' ? menuAction : '']">
         <nav class="nav-options">
-          <router-link to="/space-tourism/dist/" class="nav-btn">
+          <router-link to="/space-tourism-frontend-mentor/" class="nav-btn">
             <div><strong>00</strong> HOME</div>
           </router-link>
-          <router-link to="/space-tourism/dist/destination" class="nav-btn">
+          <router-link to="/space-tourism-frontend-mentor/destination" class="nav-btn">
             <div><strong>01</strong> DESTINATION</div>
           </router-link>
-          <router-link to="/space-tourism/dist/crew" class="nav-btn">
+          <router-link to="/space-tourism-frontend-mentor/crew" class="nav-btn">
             <div><strong>02</strong> CREW</div>
           </router-link>
 
-          <router-link to="/space-tourism/dist/technology" class="nav-btn">
+          <router-link to="/space-tourism-frontend-mentor/technology" class="nav-btn">
             <div><strong>03</strong> TECHNOLOGY</div>
           </router-link>
         </nav>

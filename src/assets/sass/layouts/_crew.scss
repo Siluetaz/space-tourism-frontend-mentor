@@ -1,30 +1,15 @@
   .title {
     grid-row: 2/3;
     grid-column: 1/1;
-    font-size: 2.8rem;
-    letter-spacing: 0.4rem;
-    text-transform: uppercase;
-    font-weight: initial;
     margin: 0;
 
-    strong {
-      opacity: 30%;
-    }
-
     @include tablet {
-      font-size: 2rem;
       width: 90%;
-      letter-spacing: 0.338rem;
-      text-align: start;
     }
 
     @include mobile {
       grid-column: 1/1;
       grid-row: 1/2;
-      padding: 0;
-      text-align: center;
-      font-size: 1.6rem;
-      letter-spacing: 0.27rem;
     }
   }
 

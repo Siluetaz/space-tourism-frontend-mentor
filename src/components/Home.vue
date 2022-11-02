@@ -23,7 +23,8 @@ onMounted(() => {
             </div>
         </section>
         <section class="explore-side">
-            <router-link to="/space-tourism/dist/destination"><button class="btn-explore">EXPLORE</button></router-link>
+            <router-link to="/space-tourism-frontend-mentor/destination"><button class="btn-explore">EXPLORE</button>
+            </router-link>
         </section>
     </main>
 </template>
