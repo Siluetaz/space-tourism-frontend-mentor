@@ -81,17 +81,17 @@ onMounted(() => {
       </transition>
       <div :class="['nav', device === 'mobile' ? menuAction : '']">
         <nav class="nav-options">
-          <router-link to="/space-tourism-frontend-mentor/" class="nav-btn">
+          <router-link to="/" class="nav-btn">
             <div><strong>00</strong> HOME</div>
           </router-link>
-          <router-link to="/space-tourism-frontend-mentor/destination" class="nav-btn">
+          <router-link to="/destination" class="nav-btn">
             <div><strong>01</strong> DESTINATION</div>
           </router-link>
-          <router-link to="/space-tourism-frontend-mentor/crew" class="nav-btn">
+          <router-link to="/crew" class="nav-btn">
             <div><strong>02</strong> CREW</div>
           </router-link>
 
-          <router-link to="/space-tourism-frontend-mentor/technology" class="nav-btn">
+          <router-link to="/technology" class="nav-btn">
             <div><strong>03</strong> TECHNOLOGY</div>
           </router-link>
         </nav>

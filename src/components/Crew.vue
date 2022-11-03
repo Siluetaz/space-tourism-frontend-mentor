@@ -6,8 +6,6 @@ let jsonData = data
 let personSelected = ref(jsonData.crew[0])
 
 onMounted(() => {
-
-
 })
 
 </script>
